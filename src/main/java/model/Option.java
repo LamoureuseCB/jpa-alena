@@ -11,17 +11,17 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "options")
+public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "category")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    @OneToMany(mappedBy = "option")
     @ToString.Exclude
-    private List<Product> products;
-    @OneToMany(mappedBy = "category")
-    @ToString.Exclude
-    private List<Option> optionList;
+    private List<Value> valueList;
 
 }
