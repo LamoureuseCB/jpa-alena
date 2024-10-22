@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.orders.Order;
+import model.orders.OrderProduct;
+import model.review.Review;
 import org.hibernate.annotations.ManyToAny;
 
 import java.util.List;
@@ -26,6 +29,12 @@ public class Product {
     @OneToMany(mappedBy = "product")
     @ToString.Exclude
     private List<Value> valueList;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderProduct> orderProducts;
+
+    @OneToMany(mappedBy = "product")
+    private List<Review>reviewList;
 
 
 

@@ -32,3 +32,44 @@ values ('Intel', 1, 1),
        ('21.5', 5, 4),
        ('AH-IPS', 6, 4),
        ('1920*1080', 7, 4);
+create table users
+(
+    id       serial primary key,
+    role     int     not null,
+    login    varchar not null,
+    password varchar not null,
+    created  date    not null
+);
+
+create table orders
+(
+    id      serial primary key,
+    status  int     not null,
+    adress  varchar not null,
+    created timestamp    not null,
+    user_id int8 references users(id) not null
+
+);
+
+create table orders_products
+(id serial primary key ,
+    product_id int8 references products (id) not null,
+    order_id   int8 references orders (id)   not null,
+    quantity   int                           not null,
+    unique (product_id, order_id)
+
+);
+create table reviews
+(
+    id          serial primary key,
+    published   int     not null,
+    rate        int not null,
+    review_text varchar(1000),
+    publish_date timestamp not null,
+    product_id int8 references products (id) not null,
+    user_id  int8 references users (id)  not null,
+    unique (product_id, user_id)
+
+
+);
+
