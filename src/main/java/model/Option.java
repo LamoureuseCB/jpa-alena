@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
+
 @Entity
 @Table(name = "options")
 public class Option {
@@ -21,7 +21,7 @@ public class Option {
     @JoinColumn(name = "category_id")
     private Category category;
     @OneToMany(mappedBy = "option")
-    @ToString.Exclude
+
     private List<Value> valueList;
 
 }

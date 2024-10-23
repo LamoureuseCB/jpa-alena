@@ -1,8 +1,12 @@
 package model.orders;
 
 import jakarta.persistence.*;
-import model.Product;
+import lombok.Getter;
+import lombok.Setter;
 
+import model.Product;
+@Getter
+@Setter
 @Entity
 @Table(name = "orders_products")
 public class OrderProduct {

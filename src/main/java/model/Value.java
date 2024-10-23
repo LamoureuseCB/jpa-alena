@@ -7,7 +7,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "values")
 public class Value {
@@ -15,11 +14,9 @@ public class Value {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-
     @ManyToOne
     @JoinColumn(name = "option_id")
     private Option option;
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
