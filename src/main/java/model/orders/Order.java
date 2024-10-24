@@ -9,11 +9,12 @@ import model.Value;
 import model.user.User;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @Setter
-
+@ToString
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -24,7 +25,7 @@ public class Order {
     private Status status;
 
     private String adress;
-    private LocalDate created;
+    private LocalDateTime created;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

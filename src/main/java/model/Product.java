@@ -27,7 +27,7 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
     @OneToMany(mappedBy = "product")
-    @ToString.Exclude
+
     private List<Value> valueList;
 
     @OneToMany(mappedBy = "product")

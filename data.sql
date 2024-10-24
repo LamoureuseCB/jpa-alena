@@ -71,6 +71,7 @@ create table users
     password varchar not null,
     created  date    not null
 );
+insert into users(role, login, password, created) VALUES (1,'firstUser1','1111FU',now());
 
 create table orders
 (
